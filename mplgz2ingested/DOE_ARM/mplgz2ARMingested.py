@@ -122,11 +122,11 @@ def mplgz2ARM(date):
         ds[v] = ds[v].astype('float32')
 
     # ....Add ARM global variables
-    git = subprocess.run(['git', 'rev-parse', 'main'], capture_output=True)
     ds.attrs = {
         'Date_created': pd.Timestamp.utcnow().strftime('%a %b %d %H:%M:%S %Y UTC'),
-        'Ingest_version': 'Git commit hash (SHA): ' + git.stdout.decode('utf-8'.rstrip()),
-        'GitHub_repository': ''
+        'Ingest_version': 'Git commit hash (SHA): cdf99f4102ba12318eaf04d228f49d1643806092',
+        'GitHub_repository': 'https://github.com/icecaps-summit/MPL-processing/tree/main',
+        'GitHub_routine': 'https://github.com/icecaps-summit/MPL-processing/blob/main/mplgz2ingested/DOE_ARM/mplgz2ARMingested.py',
         'comment': 'DOE Atmospheric Radiation Measurement (ARM) Micropulse Lidar (MPL) deployed to Summit, Greenland, as part of the NSF-funded ICECAPS project',
         'Author': 'Von P. Walden, Washington State University, v.walden@wsu.edu',
         'instrument_serial_number': '108',
